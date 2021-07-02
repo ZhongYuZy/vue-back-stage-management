@@ -1,0 +1,59 @@
+<template>
+  <div class="middle"> 
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+import * as echarts from 'echarts/core';
+export default {
+  name: "",
+  props: {},
+  data() {
+    return {};
+  },
+  components: {},
+  methods: {
+    getData() {
+      axios.get('/api/homeChat').then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log('请求成功' , err);
+      })
+    },
+    zxt(){
+      let chartDom = document.getElementById('main');
+ myChart = echarts.init(chartDom);
+var option;
+
+option = {
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        smooth: true
+    }]
+};
+    }
+  },
+  mounted() {},
+  computed: {},
+  watch: {},
+};
+</script>
+
+<style lang='scss' scoped>
+// 中间的盒子
+.middle {
+  width: 1635px;
+  height: 500px;
+  background-color: skyblue;
+  margin: 0 7px;
+}
+</style>

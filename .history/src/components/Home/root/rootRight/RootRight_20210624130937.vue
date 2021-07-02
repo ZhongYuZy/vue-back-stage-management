@@ -1,0 +1,72 @@
+<template>
+  <div>
+    <div>
+      <img src="../../../../assets/1.png" class="tu" />
+    </div>
+    <div>
+      <!-- {{Vue}} -->
+      <el-progress :percentage="50" v-model="Vue"></el-progress>
+      <!-- {{Html}} -->
+      <el-progress
+        :percentage="100"
+        status="success"
+        :format="format"
+      ></el-progress>
+      Css
+      <el-progress :percentage="50"></el-progress>
+      JavaScript
+      <el-progress :percentage="50"></el-progress>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+export default {
+  name: "",
+  Vue:'',
+  Html:'',
+  props: {},
+  data() {
+    return {
+      name:[],
+    };
+  },
+  components: {},
+  methods: {
+    getData() {
+      axios
+        .get("/api/progress")
+        .then((res) => {
+          console.log(res);
+          this.name=res.data.data.map((item) => {
+            return item.name
+          })
+          this.Vue=this.name[0]
+          console.log(this.Vue);
+          console.log(object);
+          // this.Html=this.name[1]
+        })
+        .catch((err) => {
+          console.log("请求失败", err);
+        });
+    },
+    format(percentage) {
+      return percentage === 100 ? "满" : `${percentage}%`;
+    },
+  },
+  mounted() {
+    this.getData()
+  },
+  computed: {},
+  watch: {},
+};
+</script>
+
+<style lang='scss' scoped>
+.tu {
+  width: 100%;
+  height: 300px;
+  margin: 0 0 20px 0;
+}
+</style>

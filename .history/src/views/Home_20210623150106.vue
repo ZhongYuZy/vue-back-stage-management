@@ -1,0 +1,163 @@
+<template>
+  <div class="box">
+    
+    <div class="middle"></div>
+    <div class="tail">
+      <div class="tail-one"></div>
+      <div class="tail-two"></div>
+      <div class="tail-three"></div>
+    </div>
+    <div class="root">
+      <div class="root-left"></div>
+      <div class="root-right"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+import countTo from "vue-count-to";
+export default {
+  components: { countTo },
+  name: "",
+  props: {},
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    
+  },
+  mounted() {
+    this.getData();
+  },
+  computed: {},
+  watch: {},
+};
+</script>
+
+<style lang='scss' scoped>
+.box {
+  background-color: #f0f2f6;
+}
+.header {
+  display: flex;
+}
+// 头部的四个盒子
+.head-one {
+  position: relative;
+  margin: 10px 7px;
+  width: 400px;
+  height: 100px;
+  background-color: #fff;
+}
+.head-two {
+  position: relative;
+  margin: 10px 7px;
+  width: 400px;
+  height: 100px;
+  background-color: #fff;
+}
+.head-three {
+  position: relative;
+  margin: 10px 7px;
+  width: 400px;
+  height: 100px;
+  background-color: #fff;
+}
+.head-four {
+  position: relative;
+  margin: 10px 7px;
+  width: 400px;
+  height: 100px;
+  background-color: #fff;
+}
+// 中间的盒子
+.middle {
+  width: 1635px;
+  height: 500px;
+  background-color: skyblue;
+  margin: 0 7px;
+}
+// 尾部的盒子
+.tail {
+  display: flex;
+}
+// 尾部的三个盒子
+.tail-one {
+  width: 520px;
+  height: 400px;
+  background-color: pink;
+  margin: 10px 25px 10px 5px;
+}
+.tail-two {
+  width: 520px;
+  height: 400px;
+  background-color: pink;
+  margin: 10px 25px;
+}
+.tail-three {
+  width: 520px;
+  height: 400px;
+  background-color: pink;
+  margin: 10px 5px 10px 25px;
+}
+// 底部的盒子
+.root {
+  display: flex;
+}
+// 底部左边的盒子
+.root-left {
+  width: 1100px;
+  height: 500px;
+  background-color: skyblue;
+  margin: 0 10px 10px 5px;
+}
+// 底部右边的盒子
+.root-right {
+  width: 600px;
+  height: 500px;
+  background-color: skyblue;
+  margin: 0 5px 10px 10px;
+}
+// 图标
+.icon-one {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-size: 40px !important;
+  color: #45c8c5;
+}
+.icon-two {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-size: 50px !important;
+  color: #74bdf7;
+}
+.icon-three {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-size: 50px !important;
+  color: #f3627a;
+}
+.icon-four {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-size: 50px !important;
+  color: #feba85;
+}
+// 文字和计数器
+.vis {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+}
+.visits {
+  font-size: 14px;
+  color: #8f9297;
+}
+</style>

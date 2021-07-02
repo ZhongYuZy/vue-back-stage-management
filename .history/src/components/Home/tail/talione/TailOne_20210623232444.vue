@@ -1,0 +1,67 @@
+<template>
+  <div id="lei" style="width: 500px; height: 400px"></div>
+</template>
+
+<script>
+// import * as echarts from 'echarts';
+import axios from "axios";
+export default {
+  name: "",
+  props: {},
+  data() {
+    return {
+      name: [],
+      option: {
+        legend: {
+          data: [],
+        },
+        radar: {
+          indicator: [{ name: "" }],
+        },
+        series: [
+          {
+            type: "radar",
+            data: [
+              {
+                value: [],
+              },
+              {
+                value: [],
+              },
+            ],
+          },
+        ],
+      },
+    };
+  },
+  components: {},
+  methods: {
+    getData() {
+      axios
+        .get("/api/radarChat")
+        .then((res) => {
+          this.name = res.data.data.map((item) => {
+            return item.name;
+          });
+          this.option.legend.data=this.name
+          console.log(this.name);
+          console.log(res);
+          let chartDom = document.getElementById("main");
+          let myChart = echarts.init(chartDom);
+          myChart.setOption(this.option);
+        })
+        .catch((err) => {
+          console.log("请求失败", err);
+        });
+    },
+  },
+  mounted() {
+    this.getData();
+  },
+  computed: {},
+  watch: {},
+};
+</script>
+
+<style lang='scss' scoped>
+</style>

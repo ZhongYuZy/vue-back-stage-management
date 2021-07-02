@@ -1,0 +1,57 @@
+<template>
+  <div>
+    <el-container>
+      <el-header>
+        <!-- 头部左边的盒子 -->
+      <Head_Left></Head_Left>
+      <!-- 头部右边的盒子 -->
+      <Head_Right></Head_Right>
+      </el-header>
+      <el-container>
+        <el-aside width="200px">
+           handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
+        </el-aside>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+import Head_Left from '../../components/headleft/HeadLeft'
+import Head_Right from '../../components/headright/HeadRight'
+import Aside from '../../components/Aside/Aside'
+export default {
+  name: "",
+  props: {},
+  data() {
+    return {};
+  },
+  components: {
+    Head_Left,
+    Head_Right,
+  },
+  methods: {},
+  mounted() {},
+  computed: {},
+  watch: {},
+};
+</script>
+
+<style lang='scss' scoped>
+.el-header{
+  display: flex;
+  background-color: #295c87;
+  padding: 0px 0px;
+  align-items: center;
+  font-size: 18px;
+  color: #fff;
+  justify-content: space-between;
+}
+</style>
